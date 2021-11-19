@@ -7,8 +7,8 @@ class CustomUserManagoer(UserManager):
     def _create_user(self, email, password, **extra_field):
         if not email:
             raise ValueError("input email")
-        email = self.normalize_email(email)
-        user = self.model(email=email, **extra_field)
+        email         = self.normalize_email(email)
+        user          = self.model(email=email, **extra_field)
         user.password = make_password(password)
         user.save(using=self.db)
         return user
@@ -18,8 +18,8 @@ class CustomUserManagoer(UserManager):
         
 
 class User(AbstractBaseUser):
-    email = models.CharField(max_length=30, unique=True)
-    name  = models.CharField(max_length=20)
+    email     = models.CharField(max_length=30, unique=True)
+    name      = models.CharField(max_length=20)
     is_active = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'email'
