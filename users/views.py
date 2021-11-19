@@ -5,5 +5,5 @@ from .models import User
 from .serializers import UserSerializer
 
 class UserViewSet(CreateModelMixin, GenericViewSet):
-    queryset = User.objects.all()
+    queryset         = User.objects.all()
     serializer_class = UserSerializer
